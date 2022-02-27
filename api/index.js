@@ -1,4 +1,7 @@
-const app = require('express')();
+const express = require('express');
+const app = express();
+
+app.use(express.static("public"));
 
 app.get('/api', (req, res) => {
   const now = new Date().toUTCString();
@@ -13,7 +16,7 @@ app.get('/api/item/:slug', (req, res) => {
   res.end(`Item: ${slug}`);
 });
 
-app.get('/api/image/', (req, res) => {
+app.get('/api/image', (req, res) => {
   res.sendFile('/lorem-picsum.jpeg');
 });
 
