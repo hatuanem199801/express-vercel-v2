@@ -17,7 +17,7 @@ app.get('/api/item/:slug', (req, res) => {
 });
 
 app.get('/api/image', (req, res) => {
-  res.sendFile('/lorem-picsum.jpeg');
+  res.sendFile('~/lorem-picsum.jpeg');
 });
 
 module.exports = app;
