@@ -1,7 +1,8 @@
 const express = require('express');
+const path = require("path");
 const app = express();
 
-app.use(express.static("public"));
+app.use("/api/image", express.static(path.join(__dirname, "public")));
 
 app.get('/api', (req, res) => {
   const now = new Date().toUTCString();
@@ -14,10 +15,6 @@ app.get('/api', (req, res) => {
 app.get('/api/item/:slug', (req, res) => {
   const { slug } = req.params;
   res.end(`Item: ${slug}`);
-});
-
-app.get('/api/image', (req, res) => {
-  res.sendFile('~/public/lorem-picsum.jpeg');
 });
 
 module.exports = app;
