@@ -2,7 +2,7 @@ const express = require('express');
 const path = require("path");
 const app = express();
 
-app.use("/api/image", express.static(path.join(__dirname, "public")));
+app.use('/static', express.static('public'))
 
 app.get('/api', (req, res) => {
   const now = new Date().toUTCString();
